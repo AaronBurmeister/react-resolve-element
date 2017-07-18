@@ -1,4 +1,5 @@
 import React from 'react'
+import renderProps from './renderProps'
 
 export default function resolveElement(
   { component, render, children } = {}, // eslint-disable-line react/prop-types
@@ -15,4 +16,4 @@ export default function resolveElement(
   return defaultValue
 }
 
-export renderProps from './renderProps'
+export { renderProps }
