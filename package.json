@@ -1,7 +1,7 @@
 {
   "name": "react-resolve-element",
   "version": "0.0.0",
-  "description": "Resolves the properties `component`, `render` and `children` in an React element",
+  "description": "Resolves the properties `component`, `render` and `children` into a React element",
   "main": "index.js",
   "scripts": {
     "add-babel-polyfill": "./add-babel-polyfill.sh",
