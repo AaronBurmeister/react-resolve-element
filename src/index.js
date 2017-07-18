@@ -14,3 +14,5 @@ export default function resolveElement(
 
   return defaultValue
 }
+
+export renderProps from './renderProps'

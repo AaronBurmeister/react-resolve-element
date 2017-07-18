@@ -7,6 +7,7 @@ Resolves the properties `component`, `render` and `children` into a React elemen
  - [The concept](#the-concept)
  - [API](#api)
    - [resolveElement()](#resolveelement)
+   - [renderProps](#renderprops)
 
 ## React
 
@@ -40,6 +41,8 @@ This structure is inspired from [React Router's render methods](https://reacttra
 Takes render methods and returns a React node.
 
 ```js
+import ReactNode from 'react-resolve-element';
+
 ReactNode = resolveElement(
   {
     component: ReactComponent,
@@ -51,7 +54,7 @@ ReactNode = resolveElement(
 );
 ```
 
-### Function parameters
+#### Function parameters
 
 * **Render methods**
 
@@ -67,6 +70,23 @@ ReactNode = resolveElement(
   The value which should be returned if none of the supported render methods was supplied.
   This is set to `null` by default.
 
-### Return value
+#### Return value
 
 Returns a `ReactNode` from the provided render method or `Default value` if no supported render method was supplied.
+
+### renderProps
+
+The render prop types packaged as an object.
+
+```js
+import { renderProps } from 'react-resolve-element';
+
+[...]
+static propTypes = {
+  [...]
+  ...renderProps,
+}
+[...]
+```
+
+Please see [/src/renderProps.js](https://github.com/AaronBurmeister/react-resolve-element/blob/master/src/renderProps.js) for more information.
