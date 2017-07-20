@@ -2,6 +2,8 @@
 
 Resolves the properties `component`, `render` and `children` into a React element.
 
+[![NPM](https://nodei.co/npm/react-resolve-element.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/react-resolve-element/)
+
 ## Table of contents
  - [React](#react)
  - [The concept](#the-concept)
@@ -41,7 +43,7 @@ This structure is inspired from [React Router's render methods](https://reacttra
 Takes render methods and returns a React node.
 
 ```js
-import ReactNode from 'react-resolve-element';
+import resolveElement from 'react-resolve-element';
 
 ReactNode = resolveElement(
   {
