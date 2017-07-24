@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { cloneElement } from 'react'
 import renderProps from './renderProps'
 
 export default function resolveElement(
@@ -8,10 +8,7 @@ export default function resolveElement(
 ) {
   if (component) return (<component {...props} />)
   if (render) return (render(props))
-  if (children) {
-    if (typeof children === 'function') return (children(props))
-    if (!Array.isArray(children) || children.length) return (React.Children.only(children))
-  }
+  if (children) return (cloneElement(React.Children.only(children), props))
 
   return defaultValue
 }
