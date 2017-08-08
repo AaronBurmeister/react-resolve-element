@@ -7,6 +7,7 @@ Resolves the properties `component`, `render` and `children` into a React elemen
 ## Table of contents
  - [React](#react)
  - [The concept](#the-concept)
+ - [Dependents](#dependents)
  - [API](#api)
    - [resolveElement()](#resolveelement)
    - [renderProps](#renderprops)
@@ -35,6 +36,12 @@ Children can be passed using one of the following props:
   Directly passed children.
 
 This structure is inspired from [React Router's render methods](https://reacttraining.com/react-router/web/api/Route/Route-render-methods).
+
+## Dependents
+
+This package is used in
+  - [react-redux-restriction](https://npmjs.com/packages/react-redux-restriction)
+  - [react-data-filter](https://npmjs.com/packages/react-data-filter)
 
 ## API
 
