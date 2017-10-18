@@ -1,6 +1,6 @@
 import React from 'react'
 import renderProps from './renderProps'
-import supportArrayChildren from './supportArrayChildren'
+import supportChildren from './supportChildren'
 
 export default function resolveElement(
   { component, render, children } = {}, // eslint-disable-line react/prop-types
@@ -29,5 +29,5 @@ export default function resolveElement(
 
 export {
   renderProps,
-  supportArrayChildren,
+  supportChildren,
 }

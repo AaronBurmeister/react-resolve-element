@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const ArrayChildrenWrapper = ({ container, children, ...props }) => React.createElement(
+const ChildrenWrapper = ({ container, children, ...props }) => React.createElement(
   container,
   null,
   React.Children.map(
@@ -10,7 +10,7 @@ const ArrayChildrenWrapper = ({ container, children, ...props }) => React.create
   )
 )
 
-ArrayChildrenWrapper.propTypes = {
+ChildrenWrapper.propTypes = {
   container: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.string,
@@ -21,10 +21,10 @@ ArrayChildrenWrapper.propTypes = {
 export default (children, container = 'div') => {
   if (!children) return children
 
-  if (React.Children.count(children) === 1) return React.Children.only(children)
+  if (React.isValidElement(children)) return children
   return (
-    <ArrayChildrenWrapper container={container}>
+    <ChildrenWrapper container={container}>
       {React.Children.toArray(children)}
-    </ArrayChildrenWrapper>
+    </ChildrenWrapper>
   )
 }

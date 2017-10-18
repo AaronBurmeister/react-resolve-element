@@ -38,20 +38,20 @@ Children can be passed using one of the following props:
   <details>
   <summary><b>Compatibility with <code>React < 16.0</code></b></summary>
 
-  Since [React 16.0](https://reactjs.org/blog/2017/09/26/react-v16.0.html) you can return arrays (segments) from the `render` function.
+  Since [React 16.0](https://reactjs.org/blog/2017/09/26/react-v16.0.html) you can return arrays (segments) and strings from the `render` function.
 
-  This is why `react-resolve-element` returns children as an array if there are multiple nodes.
+  This is why `react-resolve-element` returns children as an array if there are multiple nodes and allows returning strings.
 
-  If you are using a previous version you can use the `supportArrayChildren(children, container = 'div')` wrapper as follows:
+  If you are using a previous version you may want to use the `supportChildren(children, container = 'div')` wrapper as follows:
 
   ```js
   // React.version < 16.0:
-  import resolveElement, { supportArrayChildren } from 'react-redux-restriction';
+  import resolveElement, { supportChildren } from 'react-redux-restriction';
 
   ...
 
   function MyComponent({ component, render, children }) {
-    return resolveElement({ component, render, supportArrayChildren(children) }, ...);
+    return resolveElement({ component, render, supportChildren(children) }, ...);
   }
   ```
 

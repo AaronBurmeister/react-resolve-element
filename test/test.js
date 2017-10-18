@@ -45,9 +45,15 @@ describe('react-resolve-element', () => {
     })
 
     describe('with children prop', () => {
-      it('should return the children as array if provided', done => {
+      it('should return one child as is if provided', done => {
         const children = (<span>React text 2</span>)
-        expect(resolveElement({ children })).to.have.length(1)
+        expect(resolveElement({ children })).to.exist
+        done()
+      })
+
+      it('should return multiple children as an array if provided', done => {
+        const children = [<span>Child A</span>, 'Child B', <span>Child C</span>]
+        expect(resolveElement({ children })).to.have.length(3)
         done()
       })
     })
