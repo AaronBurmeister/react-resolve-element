@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react'
+import React from 'react'
 import renderProps from './renderProps'
 
 export default function resolveElement(
@@ -7,8 +7,15 @@ export default function resolveElement(
   defaultValue = null,
 ) {
   if (component) return (<component {...props} />)
+
   if (render) return (render(props))
-  if (children) return (cloneElement(React.Children.only(children), props))
+
+  if (children) {
+    return React.Children.map(
+      children,
+      (child) => (React.isValidElement(child) ? React.cloneElement(child, props) : child)
+    )
+  }
 
   return defaultValue
 }

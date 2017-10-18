@@ -45,9 +45,9 @@ describe('react-resolve-element', () => {
     })
 
     describe('with children prop', () => {
-      it('should return the children if provided', done => {
+      it('should return the children as array if provided', done => {
         const children = (<span>React text 2</span>)
-        expect(resolveElement({ children })).to.equal(children)
+        expect(resolveElement({ children })).to.have.length(1)
         done()
       })
     })
