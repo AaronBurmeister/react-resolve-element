@@ -1,23 +1,33 @@
 import React from 'react'
 import renderProps from './renderProps'
+import supportArrayChildren from './supportArrayChildren'
 
 export default function resolveElement(
   { component, render, children } = {}, // eslint-disable-line react/prop-types
   props = {},
-  defaultValue = null,
+  defaultValue = null
 ) {
-  if (component) return (<component {...props} />)
+  if (component) return React.createElement(component, props)
 
-  if (render) return (render(props))
+  if (render) return render(props)
 
   if (children) {
-    return React.Children.map(
+    const ownChildren = React.Children.map(
       children,
       (child) => (React.isValidElement(child) ? React.cloneElement(child, props) : child)
     )
+
+    switch (ownChildren.length) {
+      case 0: return null
+      case 1: return ownChildren[0]
+      default: return ownChildren
+    }
   }
 
   return defaultValue
 }
 
-export { renderProps }
+export {
+  renderProps,
+  supportArrayChildren,
+}

@@ -35,6 +35,30 @@ Children can be passed using one of the following props:
 
   Directly passed children.
 
+  <details>
+  <summary><b>Compatibility with <code>React < 16.0</code></b></summary>
+
+  Since [React 16.0](https://reactjs.org/blog/2017/09/26/react-v16.0.html) you can return arrays (segments) from the `render` function.
+
+  This is why `react-resolve-element` returns children as an array if there are multiple nodes.
+
+  If you are using a previous version you can use the `supportArrayChildren(children, container = 'div')` wrapper as follows:
+
+  ```js
+  // React.version < 16.0:
+  import resolveElement, { supportArrayChildren } from 'react-redux-restriction';
+
+  ...
+
+  function MyComponent({ component, render, children }) {
+    return resolveElement({ component, render, supportArrayChildren(children) }, ...);
+  }
+  ```
+
+  This function wraps `children` in a container if they are provided.
+  The container is a `div` by default, but you can specify your own component as the second function parameter.
+  </details>
+
 This structure is inspired from [React Router's render methods](https://reacttraining.com/react-router/web/api/Route/Route-render-methods).
 
 ## Dependents
