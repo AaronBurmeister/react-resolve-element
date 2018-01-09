@@ -122,4 +122,4 @@ static propTypes = {
 [...]
 ```
 
-Please see [/src/renderProps.js](https://github.com/AaronBurmeister/react-resolve-element/blob/master/src/renderProps.js) for more information.
+Please see [/src/renderProps.js](https://github.com/hatsuo/react-resolve-element/blob/master/src/renderProps.js) for more information.
