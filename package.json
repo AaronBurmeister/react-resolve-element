@@ -1,6 +1,6 @@
 {
   "name": "react-resolve-element",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Resolves the properties `component`, `render` and `children` into a React element",
   "main": "index.js",
   "scripts": {
